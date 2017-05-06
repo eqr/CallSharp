@@ -51,7 +51,7 @@
       </Span>
     </TextBlock>
 
-    <Label Grid.Row="2" Grid.Column="0">Expected output:</Label>
+    <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">Expected output:</Label>
     <me:MagicTextBox Grid.Column="1" Grid.Row="2" 
              FontFamily="{StaticResource theFont}" Margin="3"
              Text="{Binding Path=OutputText, UpdateSourceTrigger=PropertyChanged}"/>
@@ -77,13 +77,19 @@
       <Button Height="50" Margin="3" VerticalAlignment="Top"
               x:Name="BtnCopy" Click="BtnCopy_OnClick">Copy Selected</Button>
       <CheckBox Margin="3" x:Name="CbScaleWindow" Checked="ToggleButton_OnChecked" Visibility="Collapsed">Scale window</CheckBox>
+      <Button Height="50" Margin="3" VerticalAlignment="Top"
+              Name="BtnCopyAllCandidates" Click="BtnCopyAllCandidates_OnClick">
+        <TextBlock TextAlignment="Center">
+          <Run>Copy All Candidates</Run>
+        </TextBlock>
+      </Button>
     </StackPanel>
     <ListBox Grid.Row="4" Grid.Column="1" Margin="3" 
              FontFamily="{StaticResource theFont}"
              ItemsSource="{Binding Candidates}"
              x:Name="LbCandidates"/>
 
-    <StatusBar Grid.Row="5" Grid.ColumnSpan="2">
+    <StatusBar Grid.Row="5" Grid.ColumnSpan="2" Visibility="Collapsed">
       <StatusBarItem>
         <TextBlock Name="TbInfo" FontSize="{StaticResource smallFontSize}" />
       </StatusBarItem>
